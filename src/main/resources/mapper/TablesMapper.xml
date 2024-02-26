@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.manage.field.mapper.TablesMapper">
+    <select id="getTableDetail" parameterType="String" resultType="com.manage.field.persistents.dto.TableDetailDto">
+        select t2.table_name, t2.table_desc, t2.table_type, t2.status, t3.*
+        from column_table_rel t1
+        left join tables t2 on t1.table_name = t2.table_name
+        left join columns t3 on t1.column_name = t3.column_name
+        where t1.table_name = #{tableName}
+    </select>
+</mapper>
