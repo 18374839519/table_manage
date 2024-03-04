@@ -13,7 +13,7 @@ public class CreateTableParam extends Tables {
     /**
      * 是否创建Java文件
      */
-    private Boolean createJavaFiles;
+    private Integer createJavaFiles;
 
     private List<ColumnsParam> columnList;
 }

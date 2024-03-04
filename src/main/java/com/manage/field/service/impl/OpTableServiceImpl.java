@@ -56,7 +56,7 @@ public class OpTableServiceImpl extends DbAbstract implements OpTableService {
             statement.execute(sql);
             // 保存表记录
             saveTableRelInfo(param);
-            if (param.getCreateJavaFiles()) {
+            if (BaseContent.ONE.equals(param.getCreateJavaFiles())) {
                 // 生成表对应的实体类、mapper、service、serviceImpl文件
                 createEntityService.createJavaFiles(param);
                 createMapperService.createJavaFiles(param);
