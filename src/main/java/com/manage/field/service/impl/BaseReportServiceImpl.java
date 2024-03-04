@@ -1,7 +1,7 @@
 package com.manage.field.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.manage.field.mapper.ColumnTableRelMapper;
+import com.manage.field.mapper.ColumnsMapper;
 import com.manage.field.persistents.entity.Tables;
 import com.manage.field.persistents.vo.ColumnReportVo;
 import com.manage.field.service.BaseReportService;
@@ -30,7 +30,7 @@ public class BaseReportServiceImpl implements BaseReportService {
     private ColumnsService columnsService;
 
     @Resource
-    private ColumnTableRelMapper columnTableRelMapper;
+    private ColumnsMapper columnsMapper;
 
     @Override
     public Map<String, Object> getTableColumnCount() {
@@ -47,7 +47,7 @@ public class BaseReportServiceImpl implements BaseReportService {
         LambdaQueryWrapper<Tables> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.ne(Tables::getTableType, 1);
         long tableCount = tablesService.count(queryWrapper);
-        List<ColumnReportVo> columnReportTop10 = columnTableRelMapper.getColumnReportTop10();
+        List<ColumnReportVo> columnReportTop10 = columnsMapper.getColumnReportTop10();
         buildColumnReport(tableCount, columnReportTop10);
         return columnReportTop10;
     }
