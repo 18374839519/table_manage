@@ -53,4 +53,10 @@ public class Columns extends BaseEntity {
      */
     @TableField("primary_key")
     private Integer primaryKey;
+
+    /**
+     * 类型 1：默认字段 2：自定义字段
+     */
+    @TableField("type")
+    private Integer type;
 }

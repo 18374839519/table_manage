@@ -1,5 +1,6 @@
 package com.manage.field.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.manage.field.persistents.entity.Columns;
 import com.manage.field.persistents.param.ColumnsParam;
 import com.manage.field.persistents.vo.ColumnsVo;
@@ -7,7 +8,7 @@ import com.manage.field.utils.PageResult;
 
 import java.util.List;
 
-public interface ColumnsService {
+public interface ColumnsService extends IService<Columns> {
 
     /**
      * 分页查询

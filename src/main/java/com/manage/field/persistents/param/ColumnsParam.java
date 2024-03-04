@@ -41,4 +41,9 @@ public class ColumnsParam extends BaseParam {
      * 是否主键 1：是 2：否
      */
     private Integer primaryKey;
+
+    /**
+     * 类型 1：默认字段 2：自定义字段
+     */
+    private Integer type;
 }

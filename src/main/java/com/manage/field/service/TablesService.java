@@ -1,11 +1,12 @@
 package com.manage.field.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.manage.field.persistents.entity.Tables;
 import com.manage.field.persistents.param.TablesParam;
 import com.manage.field.persistents.vo.TableDetailVo;
 import com.manage.field.utils.PageResult;
 
-public interface TablesService {
+public interface TablesService extends IService<Tables> {
 
     /**
      * 分页查询
