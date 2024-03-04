@@ -10,5 +10,10 @@ import java.util.List;
 @Data
 public class CreateTableParam extends Tables {
 
+    /**
+     * 是否创建Java文件
+     */
+    private Boolean createJavaFiles;
+
     private List<ColumnsParam> columnList;
 }
