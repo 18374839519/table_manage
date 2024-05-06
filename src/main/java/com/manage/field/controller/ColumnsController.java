@@ -1,5 +1,6 @@
 package com.manage.field.controller;
 
+import com.manage.field.annotation.DemoAnnotation;
 import com.manage.field.persistents.entity.Columns;
 import com.manage.field.persistents.param.ColumnsParam;
 import com.manage.field.service.ColumnsService;
@@ -20,6 +21,7 @@ public class ColumnsController {
      * @param param param
      * @return PageResult
      */
+    @DemoAnnotation(desc = "这是自定义注解测试！！！")
     @PostMapping("/getColumnPage")
     public ResponseData getColumnPage(@RequestBody ColumnsParam param) {
         return ResponseData.success(columnsService.getColumnPage(param));
