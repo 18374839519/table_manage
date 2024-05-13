@@ -9,6 +9,10 @@ public class ResponseData {
 
     private static final String DEFAULT_SUCC_MSG = "请求成功";
 
+    private static final Integer DEFAULT_ERROR_CODE = 500;
+
+    private static final String DEFAULT_ERROR_MSG = "系统异常";
+
     private final Integer code;
 
     private final String msg;
@@ -27,5 +31,13 @@ public class ResponseData {
 
     public static ResponseData success() {
         return new ResponseData(DEFAULT_SUCC_CODE, DEFAULT_SUCC_MSG, null);
+    }
+
+    public static ResponseData error() {
+        return new ResponseData(DEFAULT_ERROR_CODE, DEFAULT_ERROR_MSG, null);
+    }
+
+    public static ResponseData error(int code, String msg) {
+        return new ResponseData(code, msg, null);
     }
 }

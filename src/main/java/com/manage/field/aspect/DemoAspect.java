@@ -1,8 +1,10 @@
 package com.manage.field.aspect;
 
 import com.manage.field.annotation.DemoAnnotation;
+import com.manage.field.utils.ResponseData;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
@@ -46,5 +48,10 @@ public class DemoAspect {
             log.error(e.getMessage());
         }
         return jsonResult;
+    }
+
+    @AfterThrowing
+    public Object aspectAfterThrowing() {
+        return ResponseData.error();
     }
 }
