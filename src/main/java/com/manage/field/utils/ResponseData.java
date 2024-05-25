@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class ResponseData {
 
-    private static final Integer DEFAULT_SUCC_CODE = 200;
+    private static final Integer DEFAULT_SUCCESS_CODE = 200;
 
-    private static final String DEFAULT_SUCC_MSG = "请求成功";
+    private static final String DEFAULT_SUCCESS_MSG = "请求成功";
 
     private static final Integer DEFAULT_ERROR_CODE = 500;
 
@@ -26,15 +26,19 @@ public class ResponseData {
     }
 
     public static ResponseData success(Object data) {
-        return new ResponseData(DEFAULT_SUCC_CODE, DEFAULT_SUCC_MSG, data);
+        return new ResponseData(DEFAULT_SUCCESS_CODE, DEFAULT_SUCCESS_MSG, data);
     }
 
     public static ResponseData success() {
-        return new ResponseData(DEFAULT_SUCC_CODE, DEFAULT_SUCC_MSG, null);
+        return new ResponseData(DEFAULT_SUCCESS_CODE, DEFAULT_SUCCESS_MSG, null);
     }
 
     public static ResponseData error() {
         return new ResponseData(DEFAULT_ERROR_CODE, DEFAULT_ERROR_MSG, null);
+    }
+
+    public static ResponseData error(String msg) {
+        return new ResponseData(DEFAULT_ERROR_CODE, msg, null);
     }
 
     public static ResponseData error(int code, String msg) {

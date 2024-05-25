@@ -26,7 +26,7 @@ public abstract class DbAbstract {
             statement = connection.createStatement();
         } catch (Exception e) {
             log.error("数据库连接异常：{}", e.getMessage(), e);
-            throw new BusinessException(500, "数据库连接异常：" + e.getMessage());
+            throw new BusinessException("数据库连接异常：" + e.getMessage());
         }
         return new DbConnectDto(connection, statement, null);
     }
@@ -35,7 +35,7 @@ public abstract class DbAbstract {
         try {
             if (dto == null) {
                 log.error("数据库连接为空");
-                throw new BusinessException(500, "数据库连接为空");
+                throw new BusinessException("数据库连接为空");
             }
             ResultSet resultSet = dto.getResultSet();
             if (resultSet != null) {

@@ -7,8 +7,8 @@ import com.manage.field.persistents.entity.ColumnTableRel;
 import com.manage.field.persistents.param.ColumnsParam;
 import com.manage.field.persistents.param.CreateTableColumnParam;
 import com.manage.field.service.ColumnTableRelService;
-import com.manage.field.service.OpTableColumnService;
 import com.manage.field.service.DbAbstract;
+import com.manage.field.service.OpTableColumnService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -43,7 +43,7 @@ public class OpTableColumnServiceImpl extends DbAbstract implements OpTableColum
             saveTableRelInfo(tableName, columnList);
         } catch (Exception e) {
             log.error("建表异常：{}", e.getMessage(), e);
-            throw new BusinessException(500, "建表异常：" + e.getMessage());
+            throw new BusinessException("建表异常：" + e.getMessage());
         } finally {
             closeConnect(connectDto);
         }
