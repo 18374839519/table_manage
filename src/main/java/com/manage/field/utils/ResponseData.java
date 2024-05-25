@@ -13,11 +13,11 @@ public class ResponseData {
 
     private static final String DEFAULT_ERROR_MSG = "系统异常";
 
-    private final Integer code;
+    private Integer code;
 
-    private final String msg;
+    private String msg;
 
-    private final Object data;
+    private Object data;
 
     public ResponseData(Integer code, String msg, Object data) {
         this.code = code;
