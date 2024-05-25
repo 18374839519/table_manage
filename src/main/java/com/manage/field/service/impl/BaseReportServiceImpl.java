@@ -7,13 +7,13 @@ import com.manage.field.persistents.vo.ColumnReportVo;
 import com.manage.field.service.BaseReportService;
 import com.manage.field.service.ColumnsService;
 import com.manage.field.service.TablesService;
-import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.List;

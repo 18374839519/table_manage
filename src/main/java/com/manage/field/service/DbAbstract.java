@@ -3,9 +3,9 @@ package com.manage.field.service;
 import com.manage.field.config.DbProperties;
 import com.manage.field.exception.BusinessException;
 import com.manage.field.persistents.dto.DbConnectDto;
-import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.annotation.Resource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

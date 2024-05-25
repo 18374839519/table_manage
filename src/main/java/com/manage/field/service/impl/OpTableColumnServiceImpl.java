@@ -52,7 +52,7 @@ public class OpTableColumnServiceImpl extends DbAbstract implements OpTableColum
     private List<ColumnsParam> buildColumnList(CreateTableColumnParam param) {
         String tableName = param.getTableName();
         List<ColumnTableRel> tableRelList = columnTableRelService.getColumnTableRelList(tableName);
-        List<String> existColumnList = tableRelList.stream().map(ColumnTableRel::getColumnName).distinct().toList();
+        List<String> existColumnList = tableRelList.stream().map(ColumnTableRel::getColumnName).distinct().collect(Collectors.toList());
         List<ColumnsParam> columnList = param.getColumnList();
         if (CollectionUtils.isNotEmpty(existColumnList)) {
             columnList = columnList.stream().filter(x -> !existColumnList.contains(x.getColumnName())).collect(Collectors.toList());

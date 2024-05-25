@@ -14,14 +14,15 @@ import com.manage.field.persistents.vo.ColumnsVo;
 import com.manage.field.service.ColumnTableRelService;
 import com.manage.field.service.ColumnsService;
 import com.manage.field.utils.PageResult;
-import jakarta.annotation.Resource;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ColumnsServiceImpl
@@ -123,7 +124,8 @@ public class ColumnsServiceImpl
         param.setColumnName(columns.getColumnName());
         List<ColumnTableRel> columnTableRelList = columnTableRelService.getColumnTableRelList(param);
         if (CollectionUtils.isNotEmpty(columnTableRelList)) {
-            List<String> tableList = columnTableRelList.stream().map(ColumnTableRel::getTableName).distinct().toList();
+            List<String> tableList = columnTableRelList.stream().map(ColumnTableRel::getTableName).distinct()
+                    .collect(Collectors.toList());
             throw new BusinessException(500, "字段已被表【" + StringUtils.join(tableList, "，") + "】使用，不可删除");
         }
         this.removeById(id);

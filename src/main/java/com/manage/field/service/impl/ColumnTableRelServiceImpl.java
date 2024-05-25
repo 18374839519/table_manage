@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ColumnTableRelServiceImpl
@@ -46,8 +47,8 @@ public class ColumnTableRelServiceImpl
 
     @Override
     public void addColumnTableRelBatch(List<ColumnTableRel> entityList) {
-        List<String> columnList = entityList.stream().map(ColumnTableRel::getColumnName).distinct().toList();
-        List<String> tableList = entityList.stream().map(ColumnTableRel::getTableName).distinct().toList();
+        List<String> columnList = entityList.stream().map(ColumnTableRel::getColumnName).distinct().collect(Collectors.toList());
+        List<String> tableList = entityList.stream().map(ColumnTableRel::getTableName).distinct().collect(Collectors.toList());
         if (CollectionUtils.isEmpty(columnList) || CollectionUtils.isEmpty(tableList)) {
             return;
         }
@@ -79,7 +80,7 @@ public class ColumnTableRelServiceImpl
         param.setColumnName(columnName);
         List<ColumnTableRel> columnTableRelList = getColumnTableRelList(param);
         if (CollectionUtils.isNotEmpty(columnTableRelList)) {
-            List<Long> idList = columnTableRelList.stream().map(ColumnTableRel::getId).distinct().toList();
+            List<Long> idList = columnTableRelList.stream().map(ColumnTableRel::getId).distinct().collect(Collectors.toList());
             this.removeBatchByIds(idList);
         }
     }

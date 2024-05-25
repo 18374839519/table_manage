@@ -5,12 +5,10 @@ import cn.hutool.core.util.PageUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
 public class PageResult<T> implements Serializable {
-    @Serial
     private static final long serialVersionUID = -1L;
     public static final int RAINBOW_NUM = 5;
     private Integer pageNo = 1;

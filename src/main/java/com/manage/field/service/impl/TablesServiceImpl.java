@@ -14,12 +14,12 @@ import com.manage.field.persistents.vo.ColumnsVo;
 import com.manage.field.persistents.vo.TableDetailVo;
 import com.manage.field.service.TablesService;
 import com.manage.field.utils.PageResult;
-import jakarta.annotation.Resource;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
