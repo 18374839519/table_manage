@@ -50,7 +50,7 @@ public class DemoAspect {
         return jsonResult;
     }
 
-    @AfterThrowing
+    @AfterThrowing("pointCut()")
     public Object aspectAfterThrowing() {
         return ResponseData.error();
     }
